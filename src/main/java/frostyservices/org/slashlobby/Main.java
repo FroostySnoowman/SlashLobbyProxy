@@ -1,62 +1,44 @@
 package frostyservices.org.slashlobby;
 
+import net.md_5.bungee.api.ChatColor;
 import net.md_5.bungee.api.ProxyServer;
 import net.md_5.bungee.api.plugin.Plugin;
 import frostyservices.org.slashlobby.Commands.*;
-import net.md_5.bungee.config.Configuration;
-import net.md_5.bungee.config.ConfigurationProvider;
-import net.md_5.bungee.config.YamlConfiguration;
 
 import java.io.File;
-import java.io.IOException;
+import java.io.InputStream;
+import java.nio.file.Files;
 
 public final class Main extends Plugin {
 
     private File file;
-    private Configuration configuration;
     @Override
     public void onEnable() {
-        getLogger().info("SlashLobbyProxy has enabled!");
+        getLogger().info(ChatColor.translateAlternateColorCodes('&', "&aLoading &eSlashLobby &b(Proxy Edition)&a!"));
         ProxyServer.getInstance().getPluginManager().registerCommand(this, new Lobby(this));
-
         file = new File(ProxyServer.getInstance().getPluginsFolder() + "/SlashLobby");
-        Boolean bool = file.mkdirs();
+        file.mkdirs();
         file = new File(file + "/config.yml");
+        generateConfigIfFileDoesntExist("config.yml", file);
+        getLogger().info(ChatColor.translateAlternateColorCodes('&', "&aLoaded &eSlashLobby &b(Proxy Edition)&a!"));
+    }
+
+    private void generateConfigIfFileDoesntExist(String resourceName, File configFile) {
+        if (configFile.exists()) return;
         try {
-            if (!file.exists()) {
-                file.createNewFile();
-                configuration = ConfigurationProvider.getProvider(YamlConfiguration.class).load(file);
-                configuration.set("Server1", "lobby1");
-                configuration.set("Server2", "lobby2");
-                configuration.set("Server3", "lobby3");
-                configuration.set("Server4", "lobby4");
-                configuration.set("Server5", "lobby5");
-                configuration.set("Server6", "lobby6");
-                configuration.set("Server7", "lobby7");
-                configuration.set("Server8", "lobby8");
-                configuration.set("Server9", "lobby9");
-                configuration.set("Server10", "lobby10");
-                configuration.set("Linked1", "lobby1");
-                configuration.set("Linked2", "lobby2");
-                configuration.set("Linked3", "lobby3");
-                configuration.set("Linked4", "lobby4");
-                configuration.set("Linked5", "lobby5");
-                configuration.set("Linked6", "lobby6");
-                configuration.set("Linked7", "lobby7");
-                configuration.set("Linked8", "lobby8");
-                configuration.set("Linked9", "lobby9");
-                configuration.set("Linked10", "lobby10");
-            } else {
-                configuration = ConfigurationProvider.getProvider(YamlConfiguration.class).load(file);
-            }
-            ConfigurationProvider.getProvider(YamlConfiguration.class).save(configuration,file);
-        } catch (IOException e) {
+            getLogger().info(ChatColor.translateAlternateColorCodes('&', "&aCreating &eSlashLobby &aconfiguration file!"));
+            InputStream stream = Main.class.getClassLoader().getResourceAsStream(resourceName);
+            if (stream == null) throw new IllegalStateException("Config file does not exist in resources directory!");
+            Files.copy(stream, configFile.toPath());
+            getLogger().info(ChatColor.translateAlternateColorCodes('&', "&aCreated &eSlashLobby &aconfiguration file!"));
+        }
+        catch (Exception e) {
             e.printStackTrace();
         }
     }
 
     @Override
     public void onDisable() {
-        getLogger().info("SlashLobbyProxy has disabled!");
+        getLogger().info(ChatColor.translateAlternateColorCodes('&', "&eSlashLobby &b(Proxy Edition) &chas disabled!"));
     }
 }

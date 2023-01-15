@@ -1,0 +1,29 @@
+# The server name. Examples:
+#Server1: bedwars
+#Server2: survival
+#Server3: factions
+Server1: lobby1
+Server2: lobby2
+Server3: lobby3
+Server4: lobby4
+Server5: lobby5
+Server6: lobby6
+Server7: lobby7
+Server8: lobby8
+Server9: lobby9
+Server10: lobby10
+
+# The lobbies linked to the server. Examples:
+#Linked1: bedwarslobby
+#Linked2: survivallobby
+#Linked3: factionslobby
+Linked1: lobby1
+Linked2: lobby2
+Linked3: lobby3
+Linked4: lobby4
+Linked5: lobby5
+Linked6: lobby6
+Linked7: lobby7
+Linked8: lobby8
+Linked9: lobby9
+Linked10: lobby10
