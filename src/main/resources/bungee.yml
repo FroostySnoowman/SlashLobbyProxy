@@ -1,0 +1,7 @@
+name: SlashLobby
+version: '${project.version}'
+main: frostyservices.org.slashlobby.Main
+commands:
+  lobby:
+    description: Lobby command
+    usage: /<command>
