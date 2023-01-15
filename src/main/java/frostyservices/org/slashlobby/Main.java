@@ -27,7 +27,7 @@ public final class Main extends Plugin {
                 file.createNewFile();
                 configuration = ConfigurationProvider.getProvider(YamlConfiguration.class).load(file);
                 configuration.set("Server1", "lobby");
-                configuration.set("Server2", "lobby");
+                configuration.set("Server2", "test");
                 configuration.set("Server3", "lobby");
                 configuration.set("Server4", "lobby");
                 configuration.set("Server5", "lobby");
@@ -36,6 +36,16 @@ public final class Main extends Plugin {
                 configuration.set("Server8", "lobby");
                 configuration.set("Server9", "lobby");
                 configuration.set("Server10", "lobby");
+                configuration.set("Linked1", "lobby");
+                configuration.set("Linked2", "lobby");
+                configuration.set("Linked3", "lobby");
+                configuration.set("Linked4", "lobby");
+                configuration.set("Linked5", "lobby");
+                configuration.set("Linked6", "lobby");
+                configuration.set("Linked7", "lobby");
+                configuration.set("Linked8", "lobby");
+                configuration.set("Linked9", "lobby");
+                configuration.set("Linked10", "lobby");
             } else {
                 configuration = ConfigurationProvider.getProvider(YamlConfiguration.class).load(file);
             }

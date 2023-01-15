@@ -34,14 +34,35 @@ public class Lobby extends Command {
             return;
         }
         if ((sender instanceof ProxiedPlayer)) {
-            String printout =  configuration.getString("Server1");
-            sender.sendMessage(new ComponentBuilder("Test" + printout).color(ChatColor.BLUE).create());
+            String server1 =  configuration.getString("Server1");
+            String server2 =  configuration.getString("Server2");
+            String server3 =  configuration.getString("Server3");
+            String server4 =  configuration.getString("Server4");
+            String server5 =  configuration.getString("Server5");
+            String server6 =  configuration.getString("Server6");
+            String server7 =  configuration.getString("Server7");
+            String server8 =  configuration.getString("Server8");
+            String server9 =  configuration.getString("Server9");
+            String server10 =  configuration.getString("Server10");
+            String linked1 =  configuration.getString("Linked1");
+            String linked2 =  configuration.getString("Linked2");
+            String linked3 =  configuration.getString("Linked3");
+            String linked4 =  configuration.getString("Linked4");
+            String linked5 =  configuration.getString("Linked5");
+            String linked6 =  configuration.getString("Linked6");
+            String linked7 =  configuration.getString("Linked7");
+            String linked8 =  configuration.getString("Linked8");
+            String linked9 =  configuration.getString("Linked9");
+            String linked10 =  configuration.getString("Linked10");
             ProxiedPlayer p = (ProxiedPlayer) sender;
-            if (p.getServer().getInfo().getName().equalsIgnoreCase("lobby")) {
-                p.sendMessage(new ComponentBuilder("You are already connected to the lobby!").color(ChatColor.RED).create());
-            } else {
-                p.sendMessage(new ComponentBuilder("Connecting you to the lobby!").color(ChatColor.GREEN).create());
-                p.connect(ProxyServer.getInstance().getServerInfo("lobby"));
+            //Server1 check
+            if (p.getServer().getInfo().getName().equalsIgnoreCase(server1)) {
+                p.sendMessage(new ComponentBuilder("Connecting you to " + linked1 + "!").color(ChatColor.GREEN).create());
+                p.connect(ProxyServer.getInstance().getServerInfo(linked1));
+            }
+            if (p.getServer().getInfo().getName().equalsIgnoreCase(server2)) {
+                p.sendMessage(new ComponentBuilder("Connecting you to " + linked2 + "!").color(ChatColor.GREEN).create());
+                p.connect(ProxyServer.getInstance().getServerInfo(linked2));
             }
         } else {
             sender.sendMessage(new ComponentBuilder("Only players can use this command!").color(ChatColor.RED).create());
