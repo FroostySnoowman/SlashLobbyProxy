@@ -57,15 +57,64 @@ public class Lobby extends Command {
             ProxiedPlayer p = (ProxiedPlayer) sender;
             //Server1 check
             if (p.getServer().getInfo().getName().equalsIgnoreCase(server1)) {
-                p.sendMessage(new ComponentBuilder("Connecting you to " + linked1 + "!").color(ChatColor.GREEN).create());
+                p.sendMessage(new ComponentBuilder(ChatColor.translateAlternateColorCodes('&', "&aConnecting you to &b" + linked1 + "&a!")).create());
                 p.connect(ProxyServer.getInstance().getServerInfo(linked1));
+                return;
             }
             if (p.getServer().getInfo().getName().equalsIgnoreCase(server2)) {
-                p.sendMessage(new ComponentBuilder("Connecting you to " + linked2 + "!").color(ChatColor.GREEN).create());
+                p.sendMessage(new ComponentBuilder(ChatColor.translateAlternateColorCodes('&', "&aConnecting you to &b" + linked2 + "&a!")).create());
                 p.connect(ProxyServer.getInstance().getServerInfo(linked2));
+                return;
+            }
+            if (p.getServer().getInfo().getName().equalsIgnoreCase(server3)) {
+                p.sendMessage(new ComponentBuilder(ChatColor.translateAlternateColorCodes('&', "&aConnecting you to &b" + linked3 + "&a!")).create());
+                p.connect(ProxyServer.getInstance().getServerInfo(linked3));
+                return;
+            }
+            if (p.getServer().getInfo().getName().equalsIgnoreCase(server4)) {
+                p.sendMessage(new ComponentBuilder(ChatColor.translateAlternateColorCodes('&', "&aConnecting you to &b" + linked4 + "&a!")).create());
+                p.connect(ProxyServer.getInstance().getServerInfo(linked4));
+                return;
+            }
+            if (p.getServer().getInfo().getName().equalsIgnoreCase(server5)) {
+                p.sendMessage(new ComponentBuilder(ChatColor.translateAlternateColorCodes('&', "&aConnecting you to &b" + linked5 + "&a!")).create());
+                p.connect(ProxyServer.getInstance().getServerInfo(linked5));
+                return;
+            }
+            if (p.getServer().getInfo().getName().equalsIgnoreCase(server6)) {
+                p.sendMessage(new ComponentBuilder(ChatColor.translateAlternateColorCodes('&', "&aConnecting you to &b" + linked6 + "&a!")).create());
+                p.connect(ProxyServer.getInstance().getServerInfo(linked6));
+                return;
+            }
+            if (p.getServer().getInfo().getName().equalsIgnoreCase(server7)) {
+                p.sendMessage(new ComponentBuilder(ChatColor.translateAlternateColorCodes('&', "&aConnecting you to &b" + linked7 + "&a!")).create());
+                p.connect(ProxyServer.getInstance().getServerInfo(linked7));
+                return;
+            }
+            if (p.getServer().getInfo().getName().equalsIgnoreCase(server8)) {
+                p.sendMessage(new ComponentBuilder(ChatColor.translateAlternateColorCodes('&', "&aConnecting you to &b" + linked8 + "&a!")).create());
+                p.connect(ProxyServer.getInstance().getServerInfo(linked8));
+                return;
+            }
+            if (p.getServer().getInfo().getName().equalsIgnoreCase(server9)) {
+                p.sendMessage(new ComponentBuilder(ChatColor.translateAlternateColorCodes('&', "&aConnecting you to &b" + linked9 + "&a!")).create());
+                p.connect(ProxyServer.getInstance().getServerInfo(linked9));
+                return;
+            }
+            if (p.getServer().getInfo().getName().equalsIgnoreCase(server10)) {
+                p.sendMessage(new ComponentBuilder(ChatColor.translateAlternateColorCodes('&', "&aConnecting you to &b" + linked10 + "&a!")).create());
+                p.connect(ProxyServer.getInstance().getServerInfo(linked10));
+                return;
+            } else {
+                String server = p.getServer().getInfo().getName();
+                String c1 = server.substring(0, 1).toUpperCase();
+                String capitalized = c1 + server.substring(1);
+                p.sendMessage(new ComponentBuilder(ChatColor.translateAlternateColorCodes('&', "&4" + capitalized + " &cis not linked to any lobbies!")).create());
+                return;
             }
         } else {
-            sender.sendMessage(new ComponentBuilder("Only players can use this command!").color(ChatColor.RED).create());
+            sender.sendMessage(new ComponentBuilder(ChatColor.translateAlternateColorCodes('&', "&4Only players can use this command!")).create());
+            return;
         }
     }
 }
