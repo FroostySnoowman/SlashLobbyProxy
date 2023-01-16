@@ -1,3 +1,8 @@
+# Message sent when you connect to a lobby. Examples:
+#Connecting_Message: "&8&lConnecting you to the lobby..."
+#Connecting_Message: "&aConnecting you to &b<server>&a!"
+Connecting_Message: "&8&lConnecting you to the lobby..."
+
 # The server name. Examples:
 #Server1: bedwars
 #Server2: survival

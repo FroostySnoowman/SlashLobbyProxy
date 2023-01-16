@@ -34,6 +34,11 @@ public class Lobby extends Command {
             return;
         }
         if ((sender instanceof ProxiedPlayer)) {
+            String connecting_message =  configuration.getString("Connecting_Message");
+            if (connecting_message.equalsIgnoreCase("")) {
+                sender.sendMessage(new ComponentBuilder("An error occurred. Please update your config.yml file!").color(ChatColor.RED).create());
+                return;
+            }
             String server1 =  configuration.getString("Server1");
             String server2 =  configuration.getString("Server2");
             String server3 =  configuration.getString("Server3");
@@ -57,61 +62,61 @@ public class Lobby extends Command {
             ProxiedPlayer p = (ProxiedPlayer) sender;
             // Server1 Check
             if (p.getServer().getInfo().getName().equalsIgnoreCase(server1)) {
-                p.sendMessage(new ComponentBuilder(ChatColor.translateAlternateColorCodes('&', "&aConnecting you to &b" + linked1 + "&a!")).create());
+                p.sendMessage(new ComponentBuilder(ChatColor.translateAlternateColorCodes('&', connecting_message).replaceAll("<server>", linked1)).create());
                 p.connect(ProxyServer.getInstance().getServerInfo(linked1));
                 return;
             }
             // Server2 Check
             if (p.getServer().getInfo().getName().equalsIgnoreCase(server2)) {
-                p.sendMessage(new ComponentBuilder(ChatColor.translateAlternateColorCodes('&', "&aConnecting you to &b" + linked2 + "&a!")).create());
+                p.sendMessage(new ComponentBuilder(ChatColor.translateAlternateColorCodes('&', connecting_message).replaceAll("<server>", linked2)).create());
                 p.connect(ProxyServer.getInstance().getServerInfo(linked2));
                 return;
             }
             // Server3 Check
             if (p.getServer().getInfo().getName().equalsIgnoreCase(server3)) {
-                p.sendMessage(new ComponentBuilder(ChatColor.translateAlternateColorCodes('&', "&aConnecting you to &b" + linked3 + "&a!")).create());
+                p.sendMessage(new ComponentBuilder(ChatColor.translateAlternateColorCodes('&', connecting_message).replaceAll("<server>", linked3)).create());
                 p.connect(ProxyServer.getInstance().getServerInfo(linked3));
                 return;
             }
             // Server4 Check
             if (p.getServer().getInfo().getName().equalsIgnoreCase(server4)) {
-                p.sendMessage(new ComponentBuilder(ChatColor.translateAlternateColorCodes('&', "&aConnecting you to &b" + linked4 + "&a!")).create());
+                p.sendMessage(new ComponentBuilder(ChatColor.translateAlternateColorCodes('&', connecting_message).replaceAll("<server>", linked4)).create());
                 p.connect(ProxyServer.getInstance().getServerInfo(linked4));
                 return;
             }
             // Server5 Check
             if (p.getServer().getInfo().getName().equalsIgnoreCase(server5)) {
-                p.sendMessage(new ComponentBuilder(ChatColor.translateAlternateColorCodes('&', "&aConnecting you to &b" + linked5 + "&a!")).create());
+                p.sendMessage(new ComponentBuilder(ChatColor.translateAlternateColorCodes('&', connecting_message).replaceAll("<server>", linked5)).create());
                 p.connect(ProxyServer.getInstance().getServerInfo(linked5));
                 return;
             }
             // Server6 Check
             if (p.getServer().getInfo().getName().equalsIgnoreCase(server6)) {
-                p.sendMessage(new ComponentBuilder(ChatColor.translateAlternateColorCodes('&', "&aConnecting you to &b" + linked6 + "&a!")).create());
+                p.sendMessage(new ComponentBuilder(ChatColor.translateAlternateColorCodes('&', connecting_message).replaceAll("<server>", linked6)).create());
                 p.connect(ProxyServer.getInstance().getServerInfo(linked6));
                 return;
             }
             // Server7 Check
             if (p.getServer().getInfo().getName().equalsIgnoreCase(server7)) {
-                p.sendMessage(new ComponentBuilder(ChatColor.translateAlternateColorCodes('&', "&aConnecting you to &b" + linked7 + "&a!")).create());
+                p.sendMessage(new ComponentBuilder(ChatColor.translateAlternateColorCodes('&', connecting_message).replaceAll("<server>", linked7)).create());
                 p.connect(ProxyServer.getInstance().getServerInfo(linked7));
                 return;
             }
             // Server8 Check
             if (p.getServer().getInfo().getName().equalsIgnoreCase(server8)) {
-                p.sendMessage(new ComponentBuilder(ChatColor.translateAlternateColorCodes('&', "&aConnecting you to &b" + linked8 + "&a!")).create());
+                p.sendMessage(new ComponentBuilder(ChatColor.translateAlternateColorCodes('&', connecting_message).replaceAll("<server>", linked8)).create());
                 p.connect(ProxyServer.getInstance().getServerInfo(linked8));
                 return;
             }
             // Server9 Check
             if (p.getServer().getInfo().getName().equalsIgnoreCase(server9)) {
-                p.sendMessage(new ComponentBuilder(ChatColor.translateAlternateColorCodes('&', "&aConnecting you to &b" + linked9 + "&a!")).create());
+                p.sendMessage(new ComponentBuilder(ChatColor.translateAlternateColorCodes('&', connecting_message).replaceAll("<server>", linked9)).create());
                 p.connect(ProxyServer.getInstance().getServerInfo(linked9));
                 return;
             }
             // Server10 Check
             if (p.getServer().getInfo().getName().equalsIgnoreCase(server10)) {
-                p.sendMessage(new ComponentBuilder(ChatColor.translateAlternateColorCodes('&', "&aConnecting you to &b" + linked10 + "&a!")).create());
+                p.sendMessage(new ComponentBuilder(ChatColor.translateAlternateColorCodes('&', connecting_message).replaceAll("<server>", linked10)).create());
                 p.connect(ProxyServer.getInstance().getServerInfo(linked10));
                 return;
             }
