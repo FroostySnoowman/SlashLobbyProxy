@@ -25,7 +25,7 @@ public class Lobby extends Command {
 
     public void execute(CommandSender sender, String[] args) {
         file = new File(ProxyServer.getInstance().getPluginsFolder() + "/SlashLobby");
-        Boolean bool = file.mkdirs();
+        file.mkdirs();
         file = new File(file + "/config.yml");
         try {
             configuration = ConfigurationProvider.getProvider(YamlConfiguration.class).load(file);
@@ -118,7 +118,6 @@ public class Lobby extends Command {
             if (p.getServer().getInfo().getName().equalsIgnoreCase(server10)) {
                 p.sendMessage(new ComponentBuilder(ChatColor.translateAlternateColorCodes('&', connecting_message).replaceAll("<server>", linked10)).create());
                 p.connect(ProxyServer.getInstance().getServerInfo(linked10));
-                return;
             }
             // If the server doesn't exist
             else {
@@ -126,13 +125,11 @@ public class Lobby extends Command {
                 String c1 = server.substring(0, 1).toUpperCase();
                 String capitalized = c1 + server.substring(1);
                 p.sendMessage(new ComponentBuilder(ChatColor.translateAlternateColorCodes('&', "&4" + capitalized + " &cis not linked to any lobbies!")).create());
-                return;
             }
         }
         // If the command user isn't a player
         else {
             sender.sendMessage(new ComponentBuilder(ChatColor.translateAlternateColorCodes('&', "&4Only players can use this command!")).create());
-            return;
         }
     }
 }
